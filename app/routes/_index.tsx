@@ -1,5 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 
+import { CodeBlock } from "react-code-block";
+
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -11,6 +13,7 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
+      <CodeBlockDemo />
       <ul>
         <li>
           <a
@@ -37,5 +40,17 @@ export default function Index() {
         </li>
       </ul>
     </div>
+  );
+}
+
+function CodeBlockDemo() {
+  return (
+    <CodeBlock code="console.log('Hello World!')" language="js">
+      <CodeBlock.Code className="bg-black">
+        <CodeBlock.LineContent>
+          <CodeBlock.Token />
+        </CodeBlock.LineContent>
+      </CodeBlock.Code>
+    </CodeBlock>
   );
 }

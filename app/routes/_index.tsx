@@ -1,56 +1,21 @@
-import type { MetaFunction } from "@remix-run/node";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
 
-import { CodeBlock } from "react-code-block";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+const options = {
+  title: {
+    text: "My chart",
+  },
+  series: [
+    {
+      data: [1, 2, 3],
+    },
+  ],
 };
 
-export default function Index() {
+export default function App() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <CodeBlockDemo />
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
-  );
-}
-
-function CodeBlockDemo() {
-  return (
-    <CodeBlock code="console.log('Hello World!')" language="js">
-      <CodeBlock.Code className="bg-black">
-        <CodeBlock.LineContent>
-          <CodeBlock.Token />
-        </CodeBlock.LineContent>
-      </CodeBlock.Code>
-    </CodeBlock>
   );
 }

@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 
-import { CodeBlock } from "react-code-block";
+import { CodeBlock } from "node_modules/react-code-block/dist/code-block.js";
 
 export const meta: MetaFunction = () => {
   return [
